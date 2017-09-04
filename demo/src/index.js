@@ -1,15 +1,24 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 
-import Example from '../../src'
+import BetterMailto from '../../src';
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-better-mailto Demo</h1>
-      <Example/>
-    </div>
-  }
-}
+const Demo = () => (
+  <div style={{ textAlign: 'center' }}>
+    <h1>react-better-mailto Demo</h1>
 
-render(<Demo/>, document.querySelector('#demo'))
+    <h2>Example</h2>
+    <BetterMailto
+      emailAddress="hi@alexpriceonline.com"
+      className="boss"
+      style={{
+        color: '#333',
+        textDecoration: 'none'
+      }}
+    >
+      Click me
+    </BetterMailto>
+  </div>
+);
+
+render(<Demo/>, document.querySelector('#demo'));

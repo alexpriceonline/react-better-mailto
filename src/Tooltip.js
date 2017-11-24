@@ -8,9 +8,18 @@ const toolTipStyles = {
   left: '50%',
   padding: '5px 10px',
   position: 'absolute',
-  top: '-35px',
+  bottom: '125%',
   transform: 'translateX(-50%)',
 };
+
+const toolTipBodyBtnStyles = {
+  background: '#352e2e',
+  display: 'inline-block',
+  color: '#eee',
+  margin: '5px 0px',
+  border: '1px solid #352e2e',
+  borderRadius: '5px'
+}
 
 const afterStyles = {
   borderColor: '#000000 transparent transparent transparent',
@@ -22,19 +31,29 @@ const afterStyles = {
   position: 'absolute',
   transform: 'translateX(-50%)',
   width: 0,
-}
+};
 
 const Tooltip = ({ emailAddress, className }) => (
-  <span
+  <div
     className={className + '__tooltip'}
     style={toolTipStyles}
   >
-    { emailAddress }
-    <span
+  <div className={className + '__tooltip-head'}>{ emailAddress }</div>
+  <div className={className + '__tooltip-body'}>
+    <button
+      className={className + '__tooltip--copy-email-address __tooltip-body-btn'}
+      style={toolTipBodyBtnStyles}
+      >Copy Email Address To ClipBoard</button>
+    <button
+      className={className + '__tooltip--compose-default-email __tooltip-body-btn'}
+      style={toolTipBodyBtnStyles}
+      >Compose email in default client</button>
+  </div>
+  <span
       className={className + '__tooltip-arrow'}
       style={afterStyles}
     />
-  </span>
+</div>
 );
 
 Tooltip.propTypes = {

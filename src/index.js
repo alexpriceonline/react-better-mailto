@@ -22,8 +22,9 @@ class BetterMailto extends Component {
   }
 
   // TODO:
-  // - Add tooltip ✅
-  // - Add support for settings/styles ✅
+  // - Add a copy to clipboard button
+  // - Add a open in mail client button
+  // - Style to make it look like design
   // - Write tests
   // - Write docs
 

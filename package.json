@@ -20,18 +20,19 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "15.x"
+    "react": "16.x"
   },
   "devDependencies": {
-    "nwb": "0.18.x",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "nwb": "0.20.x",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
   },
   "author": "Alex Price",
   "homepage": "http://alexpriceonline.com",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/alexpriceonline/react-better-mailto",
   "keywords": [
-    "react-component"
+    "react-component",
+    "mailto"
   ]
 }

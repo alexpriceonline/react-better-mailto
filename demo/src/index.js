@@ -9,7 +9,7 @@ const Demo = () => (
 
     <h2>Example</h2>
     <BetterMailto
-      emailAddress="hi@alexpriceonline.com"
+      emailAddress="hi@anyemail.com"
       className="boss"
       style={{
         color: '#333',

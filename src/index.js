@@ -16,27 +16,20 @@ class BetterMailto extends Component {
 
   toggleToolttip(e) {
     e.preventDefault();
+    console.log('toggle toolTip Called');
     this.setState({
       showTooltip: !this.state.showTooltip
     });
   }
 
   // TODO:
-  // - Add a copy to clipboard button
-  // - Add a open in mail client button
   // - Style to make it look like design
   // - Write tests
   // - Write docs
 
   render() {
     const { showTooltip } = this.state;
-    const {
-      children,
-      emailAddress,
-      className,
-      style,
-      ...props
-    } = this.props;
+    const { children, emailAddress, className, style, ...props } = this.props;
 
     const _className = className || 'better-mailto';
     const _style = {
@@ -45,21 +38,10 @@ class BetterMailto extends Component {
     };
 
     return (
-      <a
-        href={`mailto:${emailAddress}`}
-        onClick={this.toggleToolttip}
-        style={_style}
-        className={_className}
-        {...props}
-      >
-        { children }
+      <a href={`mailto:${emailAddress}`} onClick={this.toggleToolttip} style={_style} className={_className} {...props}>
+        {children}
 
-        { showTooltip &&
-          <Tooltip
-            emailAddress={emailAddress}
-            className={_className}
-          />
-        }
+        {showTooltip && <Tooltip emailAddress={emailAddress} className={_className} />}
       </a>
     );
   }
@@ -67,7 +49,7 @@ class BetterMailto extends Component {
 
 BetterMailto.propTypes = {
   emailAddress: t.string.isRequired,
-  className: t.string,
+  className: t.string
 };
 
 export default BetterMailto;

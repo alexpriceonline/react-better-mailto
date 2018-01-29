@@ -13,7 +13,8 @@ const Demo = () => (
       className="boss"
       style={{
         color: '#333',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        top: '200px'
       }}
     >
       Click me
@@ -21,4 +22,4 @@ const Demo = () => (
   </div>
 );
 
-render(<Demo/>, document.querySelector('#demo'));
+render(<Demo />, document.querySelector('#demo'));

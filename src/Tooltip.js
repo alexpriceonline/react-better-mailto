@@ -2,7 +2,7 @@ import React from 'react';
 import t from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import { toolTipStyles, toolTipBodyBtnStyles, afterStyles } from './TooltipStyles.js';
+import { toolTipStyles, toolTipBodyBtnStyles, toolTipComposeEmailStyles, afterStyles } from './TooltipStyles.js';
 
 const openEmailClient = email => {
   console.log('triggered');
@@ -19,13 +19,13 @@ const Tooltip = ({ emailAddress, className }) => (
         </button>
       </CopyToClipboard>
 
-      <button
-        className={className + '__tooltip--compose-default-email __tooltip-body-btn'}
+      <a
+        href={`mailto:${emailAddress}`}
+        className={className + '__tooltip--compose-default-email __tooltip-compose-default-email'}
         style={toolTipBodyBtnStyles}
-        onClick={() => openEmailClient(emailAddress)}
       >
         Compose email in default client
-      </button>
+      </a>
     </div>
     <span className={className + '__tooltip-arrow'} style={afterStyles} />
   </div>

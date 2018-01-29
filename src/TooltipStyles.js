@@ -16,7 +16,8 @@ export const toolTipBodyBtnStyles = {
   margin: '5px 0px',
   border: '1px solid #352e2e',
   borderRadius: '5px',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  textDecoration: 'none'
 };
 
 export const afterStyles = {

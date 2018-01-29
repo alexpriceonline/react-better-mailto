@@ -13,11 +13,6 @@ import {
   afterStyles
 } from './TooltipStyles.js';
 
-const openEmailClient = email => {
-  console.log('triggered');
-  document.location = `mailto:${email}`;
-};
-
 const Tooltip = props => (
   <div className={props.className + '__tooltip'} style={toolTipStyles || props.toolTipStyles}>
     <div
@@ -43,7 +38,7 @@ const Tooltip = props => (
         </CopyToClipboard>
 
         <a
-          href={`mailto:${emailAddress}`}
+          href={`mailto:${props.emailAddress}`}
           className={props.className + '__tooltip--compose-default-email __tooltip-compose-default-email'}
           style={toolTipBodyBtnStyles || props.toolTipBodyBtnStyles}
         >

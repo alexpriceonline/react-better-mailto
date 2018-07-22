@@ -10,55 +10,53 @@ import {
   toolTipBtnText,
   toolTipAnchorText,
   toolTipComposeEmailStyles,
-  afterStyles
+  toolTipArrow
 } from './TooltipStyles.js';
 
-const Tooltip = props => (
-  <div className={props.className + '__tooltip'} style={toolTipStyles || props.toolTipStyles}>
-    <div
-      className={props.className + '__tooltip-inner-wrapper'}
-      style={toolTipInnerWrapper || props.toolTipInnerWrapper}
-    >
-      <div className={props.className + '__tooltip-head'} style={toolTipHead || props.toolTipHead}>
+const Tooltip = props => {
+  const _toolTipStyles = { ...toolTipStyles, ...props.toolTipStyles };
+  const _toolTipInnerWrapper = { ...toolTipInnerWrapper, ...props.toolTipInnerWrapper };
+  const _toolTipHead = { ...toolTipHead, ...props.toolTipHead };
+  const _toolTipBodyBtnStyles = { ...toolTipBodyBtnStyles, ...props.toolTipBtnText };
+  const _toolTipBtnText = { ...toolTipBtnText, ...props.toolTipBtnText };
+  const _toolTipAnchorText = { ...toolTipAnchorText, ...props.toolTipAnchorText };
+  const _toolTipArrow = { ...toolTipArrow, ...props.toolTipArrow };
+
+  return (
+    <div className={props.className + '__tooltip'} style={_toolTipStyles}>
+      <div className={props.className + '__tooltip-head'} style={_toolTipHead}>
         {props.emailAddress}
       </div>
-      <div className={props.className + '__tooltip-body'}>
-        <CopyToClipboard text={props.emailAddress} onCopy={() => alert('copied.')}>
-          <button
-            className={props.className + '__tooltip--copy-email-address __tooltip-body-btn'}
-            style={toolTipBodyBtnStyles || props.toolTipBtnStyles}
-          >
-            <span
-              className={props.className + '__tooltip-body-btn--text'}
-              style={toolTipBtnText || props.toolTipBtnText}
-            >
-              Copy Email Address To ClipBoard
-            </span>
-          </button>
-        </CopyToClipboard>
+      <div className={props.className + '__tooltip-inner-wrapper'} style={_toolTipInnerWrapper}>
+        <div className={props.className + '__tooltip-body'}>
+          <CopyToClipboard text={props.emailAddress} onCopy={() => alert('copied.')}>
+            <button className={props.className + '__tooltip-body-btn'} style={_toolTipBodyBtnStyles}>
+              <span className={props.className + '__tooltip-body-btn--text'} style={_toolTipBtnText}>
+                Copy Email Address To ClipBoard
+              </span>
+            </button>
+          </CopyToClipboard>
 
-        <a
-          href={`mailto:${props.emailAddress}`}
-          className={props.className + '__tooltip--compose-default-email __tooltip-compose-default-email'}
-          style={toolTipBodyBtnStyles || props.toolTipBodyBtnStyles}
-        >
-          <span
-            className={props.className + '__tooltip-body-btn--text'}
-            style={toolTipAnchorText || props.toolTipAnchorText}
+          <a
+            href={`mailto:${props.emailAddress}`}
+            className={props.className + '__tooltip-body-btn'}
+            style={_toolTipBodyBtnStyles}
           >
-            Compose email in default client
-          </span>
-        </a>
+            <span className={props.className + '__tooltip-body-btn--text'} style={_toolTipAnchorText}>
+              Compose email in default client
+            </span>
+          </a>
+        </div>
       </div>
+      <span className={props.className + '__tooltip-arrow'} style={toolTipArrow || props.toolTipArrow} />
     </div>
-    <span className={props.className + '__tooltip-arrow'} style={afterStyles || props.afterStyles} />
-  </div>
-);
+  );
+};
 
 Tooltip.propTypes = {
   emailAddress: t.string.isRequired,
   className: t.string,
-  afterStyles: t.object,
+  toolTipArrow: t.object,
   toolTipAnchorText: t.object,
   toolTipBodyBtnStyles: t.object,
   toolTipBtnText: t.object,

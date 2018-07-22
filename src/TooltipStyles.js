@@ -1,5 +1,4 @@
-const blackShade = '#232323';
-const grayShade = '#F2F2F2';
+import { blackShade, grayShade } from './config.js';
 
 export const toolTipStyles = {
   background: grayShade,
@@ -21,7 +20,7 @@ export const toolTipInnerWrapper = {
 
 export const toolTipHead = {
   position: 'absolute',
-  bottom: '108%',
+  bottom: 'calc(100% + 4px)',
   color: blackShade,
   background: grayShade,
   width: '70%',
@@ -40,8 +39,9 @@ export const toolTipHead = {
 };
 
 export const toolTipBodyBtnStyles = {
+  boxSizing: 'border-box',
   background: blackShade,
-  display: 'inline-block',
+  display: 'block',
   color: grayShade,
   margin: '5px 0px',
   border: '1px solid',
@@ -50,7 +50,8 @@ export const toolTipBodyBtnStyles = {
   cursor: 'pointer',
   textDecoration: 'none',
   padding: '10px 12px',
-  minWidth: '250px'
+  minWidth: '250px',
+  width: '100%'
 };
 
 export const toolTipBtnText = {
@@ -65,7 +66,7 @@ export const toolTipAnchorText = {
   fontSize: '18px'
 };
 
-export const afterStyles = {
+export const toolTipArrow = {
   borderColor: `${blackShade} transparent transparent transparent`,
   borderStyle: 'solid',
   borderWidth: '15px 15px 0 15px',

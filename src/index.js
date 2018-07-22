@@ -11,10 +11,10 @@ class BetterMailto extends Component {
       showTooltip: false
     };
 
-    this.toggleToolttip = this.toggleToolttip.bind(this);
+    this.toggleTooltip = this.toggleTooltip.bind(this);
   }
 
-  toggleToolttip(e) {
+  toggleTooltip(e) {
     e.preventDefault();
     console.log('toggle toolTip Called');
     this.setState({
@@ -38,7 +38,7 @@ class BetterMailto extends Component {
     };
 
     return (
-      <a href={`mailto:${emailAddress}`} onClick={this.toggleToolttip} style={_style} className={_className} {...props}>
+      <a href={`mailto:${emailAddress}`} onClick={this.toggleTooltip} style={_style} className={_className} {...props}>
         {children}
 
         {showTooltip && <Tooltip emailAddress={emailAddress} className={_className} />}
